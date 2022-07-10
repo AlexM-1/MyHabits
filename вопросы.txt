@@ -1,0 +1,26 @@
+1.	Как задать corner radius = 27 у LaunchScreenLogo? Можно ли сделать LaunchScreen в коде? Как установить кастомный шрифт SFProDisplay-Semibold в interface builder (в списке выбора нет).
+
+2.	Как установить шрифты в UIAlertController, navigationItem.title, UIBarButtonItem и UITabBarItem.
+
+
+3.	UIProgressView как скруглить среднюю точку, согласно макету.
+
+4.	UIDatePicker не смог настроить как в макете.
+
+5.	Как реализовать передачу данных между экранами? Я использовал передачу индекса привычки в HabitsStore.shared через свойство контроллера.
+
+6.	Прогресс в ProgressCollectionViewCell должен всегда показывать актуальное состояние и обновляться при добавлении времени любой привычки. Как реализовать обновление при нажатии на цветной круг привычки? У меня реализовано только при обновлении экрана.
+
+7.	При нажатии "Удалить", привычка удаляется из HabitsStore, экраны HabitViewController и HabitDetailsViewController закрываются. У меня закрывается только HabitViewController (dismiss). Как закрыть HabitDetailsViewController и вернуться в список привычек? (pop не работает).
+
+
+8.	 navigationController Заголовок «Сегодня» при переходе на экран HabitDetailsViewController не сразу исчеает. Это нормально?
+navigationController?.navigationBar.prefersLargeTitles 
+
+
+9.	Не могу убрать Layout Issues: Width is ambiguous for UIDatePicker.
+
+
+
+
+
