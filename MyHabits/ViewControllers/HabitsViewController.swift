@@ -67,7 +67,7 @@ class HabitsViewController: UIViewController {
 
 
     @objc func addHabit() {
-        let habitViewController = HabitViewController()
+        let habitViewController = HabitViewController(index: 0, isNewHabit: true)
         let habitViewControllerNavigationController = UINavigationController(rootViewController: habitViewController)
 
         habitViewControllerNavigationController.modalPresentationStyle = .fullScreen
@@ -99,12 +99,14 @@ extension HabitsViewController: UICollectionViewDataSource {
 
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProgressCollectionViewCell.identifier, for: indexPath) as! ProgressCollectionViewCell
             cell.setupProgressCell()
+
+
             return cell
 
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HabitCollectionViewCell.identifier, for: indexPath) as! HabitCollectionViewCell
-            cell.setupCell(habit: store.habits[indexPath.item])
-            cell.index = indexPath.item
+            cell.setupCell(habit: store.habits[indexPath.item], index: indexPath.item)
+            cell.delegate = self
             return cell
         }
 
@@ -144,16 +146,21 @@ extension HabitsViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-
-
         if indexPath.section != 0 {
-            let habitDetailsViewController = HabitDetailsViewController()
-            habitDetailsViewController.index = indexPath.item
+            let habitDetailsViewController = HabitDetailsViewController(index: indexPath.item)
             self.navigationController?.pushViewController(habitDetailsViewController, animated: true)
-
 
         }
 
+    }
+
+}
+
+
+extension HabitsViewController :  HabitCollectionViewCellDelegate {
+
+    func didTapRoundImage() {
+        collectionView.reloadData()
     }
 
 }
